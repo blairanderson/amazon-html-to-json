@@ -1,5 +1,5 @@
-module.exports = {};
-module.exports.parse = function($) {
+;
+export const parse = ($) => {
   const videoEls = $('#imageBlock li.item.videoThumbnail img');
   const imageEls = $('#imageBlock li.item.imageThumbnail img');
   return {
@@ -8,7 +8,7 @@ module.exports.parse = function($) {
   };
 };
 
-module.exports.expectation = {
+export const expectation = {
   images: { count: 4, thumbnails: [] },
   videos: { count: 1, thumbnails: [] }
 };

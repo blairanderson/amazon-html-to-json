@@ -1,6 +1,6 @@
 const SELECTOR = '#wayfinding-breadcrumbs_feature_div ul li a.a-link-normal';
-module.exports = {};
-module.exports.parse = function($) {
+
+export const parse = ($) => {
   return $(SELECTOR)
     .map(function extract(index) {
       return {
@@ -14,7 +14,7 @@ module.exports.parse = function($) {
     .get();
 };
 
-module.exports.expectation = [
+export const expectation = [
   {
     index: 0,
     href: '/Tools-and-Home-Improvement/b/ref=dp_bc_1?ie=UTF8&node=228013',

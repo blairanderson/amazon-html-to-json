@@ -1,5 +1,4 @@
-module.exports = {};
-module.exports.parse = function($) {
+export const parse = ($) => {
   const bulletEls = $('#feature-bullets ul li span.a-list-item:not(:has(*))');
   const count = bulletEls.length;
   const bullets = bulletEls
@@ -31,7 +30,7 @@ module.exports.parse = function($) {
   };
 };
 
-module.exports.expectation = {
+export const expectation = {
   bullets: [
     {
       characterCount: 75,

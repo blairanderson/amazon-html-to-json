@@ -1,6 +1,5 @@
-module.exports = {};
 
-module.exports.parse = function($) {
+export const parse = ($) => {
   const mapper = function(index, el) {
     const text = $(el)
       .text()
@@ -55,7 +54,7 @@ module.exports.parse = function($) {
   };
 };
 
-module.exports.expectation = {
+export const expectation = {
   exists: true,
   totalCombinations: 4,
   data: {

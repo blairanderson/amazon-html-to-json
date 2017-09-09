@@ -1,5 +1,5 @@
-module.exports = {};
-module.exports.parse = function($) {
+;
+export const parse = ($) => {
   const merchantEl = $('#merchant-info');
   const merchantString = merchantEl
     .text()
