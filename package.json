@@ -1,18 +1,12 @@
 {
-  "name": "npm-starter",
-  "version": "1.1.5",
+  "name": "amazon-html-to-json",
+  "version": "1.0.0",
   "license": "MIT",
-  "description": "A starter codebase for writing NPM packages using ES2015",
-  "keywords": [
-    "starter",
-    "boilerplate",
-    "es2015",
-    "babel",
-    "airbnb"
-  ],
+  "description": "parse( html from amazon detail ) => JSON",
+  "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/deiucanta/npm-starter.git"
+    "url": "https://github.com/blairanderson/amazon-html-to-json.git"
   },
   "main": "index.js",
   "scripts": {
