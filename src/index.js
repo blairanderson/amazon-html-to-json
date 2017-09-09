@@ -1,35 +1,44 @@
 const cheerio = require('cheerio');
 const parseBreadCrumbs = require('./breadcrumbs').parse;
+const parseAplus = require('./aplus').parse;
+const parseBrand = require('./brand').parse;
 const parseReviews = require('./reviews').parse;
 const parseBuyBox = require('./buybox').parse;
 const parseImages = require('./images').parse;
 const parseBullets = require('./bullets').parse;
 const parseVariations = require('./twister').parse;
 
-const log = function() {
+const log = (title, object) => {
   if (process.env.LOG === true || process.env.LOG === 'true') {
-    console.log.apply(this, arguments);
+    console.log(title, JSON.stringify(object));
   }
 };
 
 export const parse = (html) => {
   const $ = cheerio.load(html);
   const buybox = parseBuyBox($);
-  log(parseBuyBox($));
+  log('buybox:', buybox);
+
   const brand = parseBrand($);
-  log(parseBrand($));
+  log('brand', brand);
+
   const media = parseImages($);
-  log(parseImages($));
+  log('media', media);
+
   const reviews = parseReviews($);
-  log(parseReviews($));
+  log('reviews', reviews);
+
   const bullets = parseBullets($);
-  log(parseBullets($));
-  const aplus = parseAPlus($);
-  log(parseAPlus($));
+  log('bullets', bullets);
+
+  const aplus = parseAplus($);
+  log('aplus', aplus);
+
   const variations = parseVariations($);
-  log(parseVariations($));
+  log('variations', variations);
+
   const breadcrumbs = parseBreadCrumbs($);
-  log(parseBreadCrumbs($));
+  log('breadcrumbs', breadcrumbs);
 
   return {
     buybox,
@@ -39,20 +48,6 @@ export const parse = (html) => {
     bullets,
     aplus,
     variations,
-    breadcrumbs
+    breadcrumbs,
   };
 };
-
-function parseBrand($) {
-  const brandEl = $('a#bylineInfo');
-  return {
-    text: brandEl.text().trim(),
-    href: brandEl.attr('href')
-  };
-}
-
-function parseAPlus($) {
-  return {
-    modules: $('#aplus .aplus-module').length
-  };
-}

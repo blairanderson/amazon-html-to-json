@@ -1,4 +1,4 @@
-;
+
 export const parse = ($) => {
   const merchantEl = $('#merchant-info');
   const merchantString = merchantEl
@@ -16,7 +16,7 @@ export const parse = ($) => {
       .text()
       .trim()
       .replace('Fulfilled by Amazon', '')
-      .replace('easy-to-open packaging', '')
+      .replace('easy-to-open packaging', ''),
   };
 
   const priceEl = $('#priceblock_ourprice');
@@ -28,7 +28,7 @@ export const parse = ($) => {
     merchantLink,
     price: {
       our_price,
-      currency
-    }
+      currency,
+    },
   };
 };

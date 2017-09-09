@@ -14,6 +14,6 @@ export const parse = ($) => {
     text,
     count,
     rating,
-    ratingAverage
+    ratingAverage,
   };
 };

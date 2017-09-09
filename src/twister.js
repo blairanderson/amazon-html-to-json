@@ -1,6 +1,6 @@
 
 export const parse = ($) => {
-  const mapper = function(index, el) {
+  const mapper = function (index, el) {
     const text = $(el)
       .text()
       .trim();
@@ -10,7 +10,7 @@ export const parse = ($) => {
     return {
       text,
       asin,
-      url
+      url,
     };
   };
 
@@ -22,7 +22,7 @@ export const parse = ($) => {
     .get();
 
   const color = $('#twister #variation_color_name ul li')
-    .map(function(index, el) {
+    .map(function (index, el) {
       const asin = $(el).attr('data-defaultasin');
       const url = $(el).attr('data-dp-url');
       const text = $(el)
@@ -32,7 +32,7 @@ export const parse = ($) => {
       return {
         text,
         asin,
-        url
+        url,
       };
     })
     .get();
@@ -44,13 +44,13 @@ export const parse = ($) => {
   const data = {
     style,
     color,
-    size
+    size,
   };
 
   return {
     exists,
     totalCombinations,
-    data
+    data,
   };
 };
 
@@ -63,24 +63,24 @@ export const expectation = {
       {
         text: 'Black',
         asin: 'B003O85DEI',
-        url: ''
+        url: '',
       },
       {
         text: 'Bronze',
         asin: 'B003O85DES',
-        url: '/dp/B003O85DES/ref=twister_B01N9KALZ9?_encoding=UTF8&psc=1'
+        url: '/dp/B003O85DES/ref=twister_B01N9KALZ9?_encoding=UTF8&psc=1',
       },
       {
         text: 'Green',
         asin: 'B003O85DF2',
-        url: '/dp/B003O85DF2/ref=twister_B01N9KALZ9?_encoding=UTF8&psc=1'
+        url: '/dp/B003O85DF2/ref=twister_B01N9KALZ9?_encoding=UTF8&psc=1',
       },
       {
         text: 'White',
         asin: 'B003O85DFC',
-        url: '/dp/B003O85DFC/ref=twister_B01N9KALZ9?_encoding=UTF8&psc=1'
-      }
+        url: '/dp/B003O85DFC/ref=twister_B01N9KALZ9?_encoding=UTF8&psc=1',
+      },
     ],
-    size: []
-  }
+    size: [],
+  },
 };
