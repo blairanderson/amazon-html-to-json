@@ -1,5 +1,4 @@
-
-export const parse = ($) => {
+export const parse = $ => {
   const mapper = function (index, el) {
     const text = $(el)
       .text()
@@ -38,8 +37,7 @@ export const parse = ($) => {
     .get();
 
   const exists = style.length + color.length + size.length > 0;
-  const totalCombinations =
-    (style.length || 1) * (color.length || 1) * (size.length || 1);
+  const totalCombinations = (style.length || 1) * (color.length || 1) * (size.length || 1);
 
   const data = {
     style,
