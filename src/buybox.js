@@ -1,11 +1,10 @@
 export const parse = $ => {
   const merchantEl = $('#merchant-info');
-  console.log('MERCHANT EL', merchantEl.text());
   const merchantString = merchantEl
     .text()
     .trim()
     .split('Gift-wrap available.')[0];
-  console.log(merchantString);
+
   const amazon = merchantString.indexOf('Ships from and sold by Amazon') > -1;
 
   const merchantLink = {
