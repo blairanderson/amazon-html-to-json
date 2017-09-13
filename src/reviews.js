@@ -30,8 +30,10 @@ export const parse = $ => {
 };
 
 export const expectation = {
-  count: 0,
-  rating: 'Not Applicable',
-  ratingAverage: 0,
-  text: 'Zero Customer Reviews',
+  'reviews.html': {
+    count: 0,
+    rating: 'Not Applicable',
+    ratingAverage: 0,
+    text: 'Zero Customer Reviews',
+  },
 };
