@@ -13,6 +13,8 @@ var parse = exports.parse = function parse($) {
 };
 
 var expectation = exports.expectation = {
-  images: { count: 4, thumbnails: [] },
-  videos: { count: 1, thumbnails: [] }
+  'images.html': {
+    images: { count: 4, thumbnails: [] },
+    videos: { count: 1, thumbnails: [] }
+  }
 };
