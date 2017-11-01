@@ -5,9 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 var parse = exports.parse = function parse($) {
   var merchantEl = $('#merchant-info');
-  console.log('MERCHANT EL', merchantEl.text());
   var merchantString = merchantEl.text().trim().split('Gift-wrap available.')[0];
-  console.log(merchantString);
+
   var amazon = merchantString.indexOf('Ships from and sold by Amazon') > -1;
 
   var merchantLink = {
