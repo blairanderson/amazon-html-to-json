@@ -1,24 +1,21 @@
 const lodash = require('lodash');
 
 export const parse = $ => {
-  // const videoEls = $('#imageBlock li.item.videoThumbnail img');
-  // const imageEls = $('#imageBlock li.item.imageThumbnail img');
-  // .match(/('colorImages.*)\S/);
   let str = $.html()
     .split('ImageBlockATF')[1]
     .split("A.trigger('P.AboveTheFold')")[0]
     .split('var data = ')[1]
     .split(';')[0];
+  // https://stackoverflow.com/questions/9036429/convert-object-string-to-json
   let matches = eval('(' + str + ')');
   let images = matches['colorImages']['initial'];
+  let thumbnails = lodash.map(images, image =>
+    lodash.pick(image, ['hiRes', 'large', 'lowRes', 'thumb', 'variant'])
+  );
+  let count = images.length;
 
   return {
-    images: {
-      count: images.length,
-      thumbnails: lodash.map(images, image =>
-        lodash.pick(image, ['hiRes', 'large', 'lowRes', 'thumb', 'variant'])
-      ),
-    },
+    images: { count, thumbnails },
     videos: { count: parseInt(matches['totalVideoCount']), thumbnails: [] },
   };
 };

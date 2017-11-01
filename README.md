@@ -1,24 +1,3 @@
-![NPM Starter](http://i.imgur.com/KzOjCt4.png)
-
-[![Twitter Follow](https://img.shields.io/twitter/follow/deiucanta.svg?style=social?maxAge=2592000)](https://twitter.com/deiucanta)
-[![Version](https://img.shields.io/npm/v/npm-starter.svg)](https://www.npmjs.com/package/npm-starter)
-[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/deiucanta/npm-starter/blob/master/LICENSE)
-[![dependencies](https://david-dm.org/deiucanta/npm-starter.svg)](https://david-dm.org/deiucanta/npm-starter)
-[![devDependency Status](https://david-dm.org/deiucanta/npm-starter/dev-status.svg)](https://david-dm.org/deiucanta/npm-starter#info=devDependencies)
-[![airbnb code style](https://img.shields.io/badge/code%20style-airbnb-fd5c63.svg)](https://github.com/airbnb/javascript)
-
----
-
-This enables you to write ES2015 code but before the package is published on NPM, it gets converted to ES5 code so anyone can use it in their projects.
-
-## Features
-
-- ECMAScript 2015 Support
-- Airbnb Style Guide
-- Mocha & Chai for Testing
-- Predefined NPM Scripts
-- No Unnecessary Boilerplate
-
 ## Getting Started
 
 You just need to clone this project, delete the `.git` folder and install the NPM dependencies.
