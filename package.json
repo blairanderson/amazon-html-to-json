@@ -1,6 +1,6 @@
 {
   "name": "amazon-html-to-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "parse( html from amazon detail ) => JSON",
   "keywords": [],
