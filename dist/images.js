@@ -6,7 +6,17 @@ Object.defineProperty(exports, "__esModule", {
 var lodash = require('lodash');
 
 var parse = exports.parse = function parse($) {
-  var str = $.html().split('ImageBlockATF')[1].split("A.trigger('P.AboveTheFold')")[0].split('var data = ')[1].split(';')[0];
+  var str = $.html();
+  // return early if these things are not present
+  if (str.indexOf('ImageBlockATF') === -1 || str.indexOf("A.trigger('P.AboveTheFold')") === -1) {
+    return {
+      images: { count: 0, thumbnails: [] },
+      videos: { count: 0, thumbnails: [] }
+    };
+  }
+
+  str.split('ImageBlockATF')[1].split("A.trigger('P.AboveTheFold')")[0].split('var data = ')[1].split(';')[0];
+
   // https://stackoverflow.com/questions/9036429/convert-object-string-to-json
   var matches = eval('(' + str + ')');
   var images = matches['colorImages']['initial'];
