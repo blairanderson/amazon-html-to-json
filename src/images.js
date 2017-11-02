@@ -1,11 +1,21 @@
 const lodash = require('lodash');
 
 export const parse = $ => {
-  let str = $.html()
+  let str = $.html();
+  // return early if these things are not present
+  if (str.indexOf('ImageBlockATF') === -1 || str.indexOf("A.trigger('P.AboveTheFold')") === -1) {
+    return {
+      images: { count: 0, thumbnails: [] },
+      videos: { count: 0, thumbnails: [] },
+    };
+  }
+
+  str
     .split('ImageBlockATF')[1]
     .split("A.trigger('P.AboveTheFold')")[0]
     .split('var data = ')[1]
     .split(';')[0];
+
   // https://stackoverflow.com/questions/9036429/convert-object-string-to-json
   let matches = eval('(' + str + ')');
   let images = matches['colorImages']['initial'];
