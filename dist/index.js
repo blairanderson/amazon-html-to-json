@@ -27,16 +27,13 @@ var log = function log(title, object) {
   }
 };
 
-var parse = exports.parse = function parse(html) {
+var parse = exports.parse = function parse(html, ImageBlock) {
   var $ = cheerio.load(html);
   var buybox = parseBuyBox($);
   log('buybox:', buybox);
 
   var brand = parseBrand($);
   log('brand', brand);
-
-  var media = parseImages($);
-  log('media', media);
 
   var reviews = parseReviews($);
   log('reviews', reviews);
@@ -52,6 +49,9 @@ var parse = exports.parse = function parse(html) {
 
   var breadcrumbs = parseBreadCrumbs($);
   log('breadcrumbs', breadcrumbs);
+
+  var media = parseImages($, ImageBlock);
+  log('media', media);
 
   return {
     buybox: buybox,
