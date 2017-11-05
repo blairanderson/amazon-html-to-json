@@ -1,10 +1,18 @@
 const lodash = require('lodash');
 
+const log = args => {
+  if (process.env.LOG === true || process.env.LOG === 'true') {
+    console.log.apply(this, args);
+  }
+};
+
 export const parse = ($, ImageBlock) => {
   let matches;
   if (ImageBlock) {
+    console.log('ImageBlock');
     matches = ImageBlock;
   } else {
+    console.log('mainSplitter');
     let mainSplitter = "ImageBlockATF', function (A) {";
     let str = $.html();
     // return early if these things are not present

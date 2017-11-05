@@ -5,11 +5,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 var lodash = require('lodash');
 
+var log = function log(args) {
+  if (process.env.LOG === true || process.env.LOG === 'true') {
+    console.log.apply(undefined, args);
+  }
+};
+
 var parse = exports.parse = function parse($, ImageBlock) {
   var matches = void 0;
   if (ImageBlock) {
+    console.log('ImageBlock');
     matches = ImageBlock;
   } else {
+    console.log('mainSplitter');
     var mainSplitter = "ImageBlockATF', function (A) {";
     var str = $.html();
     // return early if these things are not present
