@@ -23,3 +23,63 @@ describe('parsers', () => {
     });
   });
 });
+
+describe('index.js', () => {
+  it('should properly return a promise', done => {
+    const lib = require('../src/index.js');
+    const expectation = lib.parse('<html></html>');
+    expect(expectation).to.deep.equal({
+      buybox: {
+        amazon: false,
+        merchantLink: {
+          fba: false,
+          href: '',
+          text: '',
+        },
+        price: {
+          our_price: 0,
+          currency: '',
+        },
+      },
+      brand: {
+        text: '',
+        href: undefined,
+      },
+      media: {
+        images: {
+          count: 0,
+          thumbnails: [],
+        },
+        videos: {
+          count: 0,
+          thumbnails: [],
+        },
+      },
+      reviews: {
+        text: 'Zero Customer Reviews',
+        count: 0,
+        rating: 'Not Applicable',
+        ratingAverage: 0,
+      },
+      bullets: {
+        count: 0,
+        averageLength: 0,
+        data: [],
+      },
+      aplus: {
+        modules: 0,
+      },
+      variations: {
+        exists: false,
+        totalCombinations: 1,
+        data: {
+          style: [],
+          color: [],
+          size: [],
+        },
+      },
+      breadcrumbs: [],
+    });
+    done();
+  });
+});

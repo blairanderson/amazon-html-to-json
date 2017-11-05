@@ -1,27 +1,28 @@
 const lodash = require('lodash');
 
-export const parse = $ => {
-  let mainSplitter = "ImageBlockATF', function (A) {";
-  // P.when("ImageBlockATF").execute(function(imblock){
-  // debugger
-  // })
-  let str = $.html();
-  // return early if these things are not present
-  if (str.indexOf(mainSplitter) === -1) {
-    return {
-      images: { count: 0, thumbnails: [] },
-      videos: { count: 0, thumbnails: [] },
-    };
+export const parse = ($, ImageBlock) => {
+  let matches;
+  if (ImageBlock) {
+    matches = ImageBlock;
+  } else {
+    let mainSplitter = "ImageBlockATF', function (A) {";
+    let str = $.html();
+    // return early if these things are not present
+    if (str.indexOf(mainSplitter) === -1) {
+      return {
+        images: { count: 0, thumbnails: [] },
+        videos: { count: 0, thumbnails: [] },
+      };
+    }
+    str = str
+      .split(mainSplitter)[1]
+      .split('var data =')[1]
+      .split(';')[0];
+
+    // console.log(str);
+    // https://stackoverflow.com/questions/9036429/convert-object-string-to-json
+    matches = eval('(' + str + ')');
   }
-
-  str = str
-    .split(mainSplitter)[1]
-    .split('var data =')[1]
-    .split(';')[0];
-
-  // console.log(str);
-  // https://stackoverflow.com/questions/9036429/convert-object-string-to-json
-  let matches = eval('(' + str + ')');
 
   let images = matches['colorImages']['initial'];
   let thumbnails = lodash.map(images, image =>

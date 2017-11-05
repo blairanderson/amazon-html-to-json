@@ -14,16 +14,13 @@ const log = (title, object) => {
   }
 };
 
-export const parse = (html) => {
+export const parse = (html, ImageBlock) => {
   const $ = cheerio.load(html);
   const buybox = parseBuyBox($);
   log('buybox:', buybox);
 
   const brand = parseBrand($);
   log('brand', brand);
-
-  const media = parseImages($);
-  log('media', media);
 
   const reviews = parseReviews($);
   log('reviews', reviews);
@@ -39,6 +36,9 @@ export const parse = (html) => {
 
   const breadcrumbs = parseBreadCrumbs($);
   log('breadcrumbs', breadcrumbs);
+
+  const media = parseImages($, ImageBlock);
+  log('media', media);
 
   return {
     buybox,
