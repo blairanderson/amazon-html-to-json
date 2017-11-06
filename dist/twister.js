@@ -3,9 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var CLEAN_TEXT = /\r?\n|\r|\t|  /g;
+
+function cleanText(text) {
+  return text.trim().replace(CLEAN_TEXT, '');
+}
+
 var parse = exports.parse = function parse($) {
   var mapper = function mapper(index, el) {
-    var text = $(el).text().trim();
+    var text = cleanText($(el).text());
     var asin = $(el).attr('data-defaultasin');
     var url = $(el).attr('data-dp-url');
 
@@ -22,7 +28,7 @@ var parse = exports.parse = function parse($) {
   var color = $('#twister #variation_color_name ul li').map(function (index, el) {
     var asin = $(el).attr('data-defaultasin');
     var url = $(el).attr('data-dp-url');
-    var text = $(el).find('img').attr('alt').trim();
+    var text = cleanText($(el).find('img').attr('alt'));
     return {
       text: text,
       asin: asin,

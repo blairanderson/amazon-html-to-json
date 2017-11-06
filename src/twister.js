@@ -1,8 +1,12 @@
+var CLEAN_TEXT = /\r?\n|\r|\t|  /g;
+
+function cleanText(text) {
+  return text.trim().replace(CLEAN_TEXT, '');
+}
+
 export const parse = $ => {
   const mapper = function (index, el) {
-    const text = $(el)
-      .text()
-      .trim();
+    const text = cleanText($(el).text());
     const asin = $(el).attr('data-defaultasin');
     const url = $(el).attr('data-dp-url');
 
@@ -24,10 +28,11 @@ export const parse = $ => {
     .map(function (index, el) {
       const asin = $(el).attr('data-defaultasin');
       const url = $(el).attr('data-dp-url');
-      const text = $(el)
-        .find('img')
-        .attr('alt')
-        .trim();
+      const text = cleanText(
+        $(el)
+          .find('img')
+          .attr('alt')
+      );
       return {
         text,
         asin,
