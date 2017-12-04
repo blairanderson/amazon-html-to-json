@@ -1,4 +1,3 @@
-const cheerio = require('cheerio');
 const parseBreadCrumbs = require('./breadcrumbs').parse;
 const parseAplus = require('./aplus').parse;
 const parseBrand = require('./brand').parse;
@@ -8,14 +7,24 @@ const parseImages = require('./images').parse;
 const parseBullets = require('./bullets').parse;
 const parseVariations = require('./twister').parse;
 
+export {
+  parseBreadCrumbs,
+  parseAplus,
+  parseBrand,
+  parseReviews,
+  parseBuyBox,
+  parseImages,
+  parseBullets,
+  parseVariations,
+};
+
 const log = (title, object) => {
   if (process.env.LOG === true || process.env.LOG === 'true') {
     console.log(title, JSON.stringify(object));
   }
 };
 
-export const parse = (html, ImageBlock) => {
-  const $ = cheerio.load(html);
+export const parse = ($, ImageBlock) => {
   const buybox = parseBuyBox($);
   log('buybox:', buybox);
 

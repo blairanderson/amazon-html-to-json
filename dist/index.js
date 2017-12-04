@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parse = undefined;
+exports.parse = exports.parseVariations = exports.parseBullets = exports.parseImages = exports.parseBuyBox = exports.parseReviews = exports.parseBrand = exports.parseAplus = exports.parseBreadCrumbs = undefined;
 
 var _stringify = require('babel-runtime/core-js/json/stringify');
 
@@ -11,7 +11,6 @@ var _stringify2 = _interopRequireDefault(_stringify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var cheerio = require('cheerio');
 var parseBreadCrumbs = require('./breadcrumbs').parse;
 var parseAplus = require('./aplus').parse;
 var parseBrand = require('./brand').parse;
@@ -21,14 +20,23 @@ var parseImages = require('./images').parse;
 var parseBullets = require('./bullets').parse;
 var parseVariations = require('./twister').parse;
 
+exports.parseBreadCrumbs = parseBreadCrumbs;
+exports.parseAplus = parseAplus;
+exports.parseBrand = parseBrand;
+exports.parseReviews = parseReviews;
+exports.parseBuyBox = parseBuyBox;
+exports.parseImages = parseImages;
+exports.parseBullets = parseBullets;
+exports.parseVariations = parseVariations;
+
+
 var log = function log(title, object) {
   if (process.env.LOG === true || process.env.LOG === 'true') {
     console.log(title, (0, _stringify2.default)(object));
   }
 };
 
-var parse = exports.parse = function parse(html, ImageBlock) {
-  var $ = cheerio.load(html);
+var parse = exports.parse = function parse($, ImageBlock) {
   var buybox = parseBuyBox($);
   log('buybox:', buybox);
 
