@@ -1,6 +1,6 @@
 {
   "name": "amazon-html-to-json",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "description": "parse( html_from_amazon_detail_page ) => JSON",
   "keywords": [],
@@ -12,13 +12,10 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "babel src -d dist",
-    "lint": "eslint src tests",
-    "lint:fix": "npm run lint -- --fix",
     "test": "mocha tests --compilers js:babel-register",
     "test:dev": "npm run test -- --watch",
     "prepublish": "npm run clean & npm run build",
-    "publish":
-      "git add . && git commit -m 'publish' && git push origin master && echo https://github.com/blairanderson/amazon-html-to-json.git#\"$(git log --pretty=format:'%H' -n 1)\""
+    "publish": "git add . && git commit -m 'publish' && git push origin master && echo https://github.com/blairanderson/amazon-html-to-json.git#\"$(git log --pretty=format:'%H' -n 1)\""
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
