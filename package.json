@@ -15,7 +15,7 @@
     "test": "mocha tests --compilers js:babel-register",
     "test:dev": "npm run test -- --watch",
     "prepublish": "npm run clean & npm run build",
-    "publish": "git add . && git commit -m 'publish' && git push origin master && echo https://github.com/blairanderson/amazon-html-to-json.git#\"$(git log --pretty=format:'%H' -n 1)\""
+    "publish": "echo https://github.com/blairanderson/amazon-html-to-json.git#\"$(git log --pretty=format:'%H' -n 1)\""
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
