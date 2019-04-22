@@ -2,7 +2,7 @@
   "name": "amazon-html-to-json",
   "version": "1.0.2",
   "license": "MIT",
-  "description": "parse( html from amazon detail ) => JSON",
+  "description": "parse( html_from_amazon_detail_page ) => JSON",
   "keywords": [],
   "repository": {
     "type": "git",

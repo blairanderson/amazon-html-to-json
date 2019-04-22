@@ -25,7 +25,7 @@ describe('parsers', () => {
 });
 
 describe('index.js', () => {
-  it('should properly return a promise', done => {
+  it('should properly return the default values', done => {
     const lib = require('../src/index.js');
     const expectation = lib.parse('<html></html>');
     expect(expectation).to.deep.equal({
